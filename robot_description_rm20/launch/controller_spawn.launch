@@ -1,0 +1,8 @@
+<launch>
+    <arg name="id" default="1"/>
+    <arg name="color" default="blue"/>
+    <node name="controller" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" ns="/$(arg color)_$(arg id)" args="spawn
+            joint_state_controller
+            yaw_position_controller
+            pitch_position_controller"/>
+</launch>

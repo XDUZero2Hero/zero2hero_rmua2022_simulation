@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="tag_rmua2022">
+  <link name="ICRA_MAP">
+    <inertial>
+      <origin xyz="4.04 2.24 0.10196" rpy="0 0 0" />
+      <mass value="2565.9" />
+      <inertia ixx="7814.7" ixy="-0.060923" ixz="-1.3964E-13" iyy="18727" iyz="1.0182E-13" izz="26518" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/icra_map_simplify_visual.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/icra_map_simplify.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="A">
+    <inertial>
+      <origin xyz="0 0 0.00025395" rpy="0 0 0" />
+      <mass value="0.011427" />
+      <inertia ixx="2.1355E-05" ixy="4.9114E-22" ixz="-8.5998E-24" iyy="2.1355E-05" iyz="6.6032E-25" izz="4.2709E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagA.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagA.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="A" type="fixed">
+    <origin xyz="0.499999999999998 3.4801 0.1995" rpy="1.5707963267949 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="A" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="B">
+    <inertial>
+      <origin xyz="0 2.7756E-17 0.00029072" rpy="0 0 0" />
+      <mass value="0.013017" />
+      <inertia ixx="2.3699E-05" ixy="-2.4234E-22" ixz="-6.1619E-25" iyy="2.3699E-05" iyz="7.7776E-24" izz="4.7397E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagB.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagB.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="B" type="fixed">
+    <origin xyz="0.499999999999998 3.2799 0.1995" rpy="1.5707963267949 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="B" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="C">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700884" rpy="0 0 0" />
+      <mass value="0.0130170384899996" />
+      <inertia ixx="2.36988293384775E-05" ixy="1.02971061565781E-21" ixz="-4.1448783951049E-24" iyy="2.36988293384775E-05" iyz="7.78254600709865E-24" izz="4.73969120919498E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagC.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagC.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="C" type="fixed">
+    <origin xyz="1.4999 0.499999999999999 0.1995" rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent link="ICRA_MAP" />
+    <child link="C" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="D">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700884" rpy="0 0 0" />
+      <mass value="0.0130170384899996" />
+      <inertia ixx="2.36988293384775E-05" ixy="1.14383569079598E-21" ixz="1.52807362792813E-24" iyy="2.36988293384775E-05" iyz="6.75786026484854E-24" izz="4.73969120919498E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagD.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagD.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="D" type="fixed">
+    <origin xyz="1.7001 0.499999999999999 0.1995" rpy="1.5707963267949 0 1.5707963267949" />
+    <parent link="ICRA_MAP" />
+    <child link="D" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="E">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700662" rpy="0 0 0" />
+      <mass value="0.0130170384899986" />
+      <inertia ixx="2.3698829338474E-05" ixy="-3.94203260669802E-22" ixz="-3.42617262547692E-24" iyy="2.36988293384741E-05" iyz="7.01630395835867E-24" izz="4.73969120919429E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagE.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagE.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="E" type="fixed">
+    <origin xyz="7.58 0.999899999999999 0.1995" rpy="1.5707963267949 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="E" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="F">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700662" rpy="0 0 0" />
+      <mass value="0.0130170384899986" />
+      <inertia ixx="2.3698829338474E-05" ixy="-2.61725115690606E-22" ixz="-2.53730954821308E-24" iyy="2.36988293384741E-05" iyz="7.14586047532986E-24" izz="4.73969120919429E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagF.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagF.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="F" type="fixed">
+    <origin xyz="7.58 1.2001 0.1995" rpy="1.5707963267949 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="F" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="G">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700884" rpy="0 0 0" />
+      <mass value="0.0130170384899996" />
+      <inertia ixx="2.36988293384775E-05" ixy="1.05013163703045E-21" ixz="8.88353265922435E-25" iyy="2.36988293384775E-05" iyz="7.63816360791715E-24" izz="4.73969120919498E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagG.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagG.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="G" type="fixed">
+    <origin xyz="6.5801 3.98 0.1995" rpy="1.5707963267949 0 1.5707963267949" />
+    <parent link="ICRA_MAP" />
+    <child link="G" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="H">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700884" rpy="0 0 0" />
+      <mass value="0.0130170384899996" />
+      <inertia ixx="2.36988293384775E-05" ixy="1.13414216799263E-21" ixz="3.36376410463395E-24" iyy="2.36988293384775E-05" iyz="2.80643963380698E-24" izz="4.73969120919498E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagH.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagH.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="H" type="fixed">
+    <origin xyz="6.3799 3.98 0.1995" rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent link="ICRA_MAP" />
+    <child link="H" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="I">
+    <inertial>
+      <origin xyz="-2.76717009097909E-18 0 0.000290724435700884" rpy="0 0 0" />
+      <mass value="0.0130170384899986" />
+      <inertia ixx="2.36988293384739E-05" ixy="9.56427583264438E-22" ixz="-1.51090519930037E-23" iyy="2.36988293384739E-05" iyz="6.02238666902838E-24" izz="4.73969120919427E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagI.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagI.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="I" type="fixed">
+    <origin xyz="4.04 3.5455 0.1995" rpy="1.5707963267949 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="I" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="J">
+    <inertial>
+      <origin xyz="1.33717113754754E-19 0 0.000290724435700773" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384762E-05" ixy="-7.78712998536249E-22" ixz="-4.89438243594351E-24" iyy="2.36988293384762E-05" iyz="3.95937288253699E-24" izz="4.73969120919474E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagJ.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagJ.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="J" type="fixed">
+    <origin xyz="4.04 3.445 0.4" rpy="0 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="J" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="K">
+    <inertial>
+      <origin xyz="4.22168699137817E-18 0 0.000290724435700662" rpy="0 0 0" />
+      <mass value="0.0130170384899986" />
+      <inertia ixx="2.36988293384739E-05" ixy="1.31185675272082E-21" ixz="7.17008981766748E-24" iyy="2.36988293384739E-05" iyz="2.65071644881191E-24" izz="4.73969120919427E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagK.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagK.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="K" type="fixed">
+    <origin xyz="4.04 3.3445 0.1995" rpy="1.5707963267949 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="K" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="L">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700732" rpy="0 0 0" />
+      <mass value="0.0130170384900001" />
+      <inertia ixx="2.36988293384767E-05" ixy="-9.56427583264438E-22" ixz="3.62964398220609E-24" iyy="2.36988293384768E-05" iyz="6.87497193296163E-24" izz="4.73969120919483E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagL.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagL.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="L" type="fixed">
+    <origin xyz="1.9 2.3401 0.0745" rpy="1.5707963267949 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="L" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="M">
+    <inertial>
+      <origin xyz="2.38978679799578E-18 0 0.000290724435700718" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384764E-05" ixy="1.09183397992381E-21" ixz="5.67207774028461E-24" iyy="2.36988293384763E-05" iyz="-3.79019329672935E-24" izz="4.73969120919476E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagM.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagM.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="M" type="fixed">
+    <origin xyz="1.9 2.24 0.1496" rpy="0 0 -1.5707963267949" />
+    <parent link="ICRA_MAP" />
+    <child link="M" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="N">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700718" rpy="0 0 0" />
+      <mass value="0.0130170384900001" />
+      <inertia ixx="2.36988293384767E-05" ixy="-9.85508151674506E-22" ixz="1.92829292711243E-24" iyy="2.36988293384768E-05" iyz="7.6094633854526E-24" izz="4.73969120919483E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagN.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagN.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="N" type="fixed">
+    <origin xyz="1.9 2.1399 0.0745" rpy="1.5707963267949 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="N" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="O">
+    <inertial>
+      <origin xyz="2.76044149431494E-18 2.77555756156289E-17 0.000290724435700662" rpy="0 0 0" />
+      <mass value="0.0130170384899986" />
+      <inertia ixx="2.36988293384739E-05" ixy="1.36252156523969E-21" ixz="7.8729820048179E-24" iyy="2.36988293384739E-05" iyz="2.40646793516863E-24" izz="4.73969120919427E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagO.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagO.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="O" type="fixed">
+    <origin xyz="4.04 0.934499999999999 0.1995" rpy="1.5707963267949 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="O" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="P">
+    <inertial>
+      <origin xyz="7.24694831355622E-19 0 0.000290724435700773" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384762E-05" ixy="-7.24817011749591E-22" ixz="-6.20803515309942E-24" iyy="2.36988293384762E-05" iyz="3.81679700518771E-24" izz="4.73969120919473E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagP.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagP.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="P" type="fixed">
+    <origin xyz="4.04 1.035 0.4" rpy="0 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="P" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="Q">
+    <inertial>
+      <origin xyz="2.28353426161166E-18 0 0.000290724435700662" rpy="0 0 0" />
+      <mass value="0.0130170384899986" />
+      <inertia ixx="2.36988293384739E-05" ixy="1.24723326736511E-21" ixz="1.07091658048558E-23" iyy="2.36988293384739E-05" iyz="2.00136942629053E-24" izz="4.73969120919427E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagQ.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagQ.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Q" type="fixed">
+    <origin xyz="4.04 1.1355 0.1995" rpy="1.5707963267949 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="Q" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="R">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700718" rpy="0 0 0" />
+      <mass value="0.0130170384900001" />
+      <inertia ixx="2.36988293384767E-05" ixy="-1.00063004724774E-21" ixz="1.45794849908574E-24" iyy="2.36988293384768E-05" iyz="7.56674985811032E-24" izz="4.73969120919483E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagR.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagR.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="R" type="fixed">
+    <origin xyz="6.18 2.1399 0.0745" rpy="1.5707963267949 0 0" />
+    <parent link="ICRA_MAP" />
+    <child link="R" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="S">
+    <inertial>
+      <origin xyz="-4.30079268034722E-19 0 0.000290724435700718" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384764E-05" ixy="1.18907213054498E-21" ixz="-6.91196577886843E-24" iyy="2.36988293384763E-05" iyz="3.56622572953028E-24" izz="4.73969120919476E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagS.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagS.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="S" type="fixed">
+    <origin xyz="6.18 2.24 0.1496" rpy="0 0 -1.5707963267949" />
+    <parent link="ICRA_MAP" />
+    <child link="S" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="T">
+    <inertial>
+      <origin xyz="0 0 0.000290724435700718" rpy="0 0 0" />
+      <mass value="0.0130170384900001" />
+      <inertia ixx="2.36988293384767E-05" ixy="-1.01458872008457E-21" ixz="1.38526587586178E-24" iyy="2.36988293384768E-05" iyz="6.09101416394884E-24" izz="4.73969120919483E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagT.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagT.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="T" type="fixed">
+    <origin xyz="6.18 2.3401 0.0745" rpy="1.5707963267949 0 3.14159265358979" />
+    <parent link="ICRA_MAP" />
+    <child link="T" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="U">
+    <inertial>
+      <origin xyz="8.32667268468867E-17 -1.2490009027033E-16 0.000290724435700745" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384762E-05" ixy="2.08989363365612E-20" ixz="0" iyy="2.36988293384761E-05" iyz="1.56701842022387E-21" izz="4.73969120919471E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagU.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagU.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="U" type="fixed">
+    <origin xyz="4.12845905832644 2.32845905832644 0.0745" rpy="1.5707963267949 0 2.35619449019234" />
+    <parent link="ICRA_MAP" />
+    <child link="U" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="V">
+    <inertial>
+      <origin xyz="6.93889390390723E-17 -1.11022302462516E-16 0.000290448430332657" rpy="0 0 0" />
+      <mass value="0.0130031962600935" />
+      <inertia ixx="2.36986759191553E-05" ixy="2.05232262523621E-20" ixz="0" iyy="2.36986759191552E-05" iyz="4.99073775913667E-22" izz="4.7396607139412E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagV.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagV.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="V" type="fixed">
+    <origin xyz="3.95154094167356 2.32845905832644 0.0745" rpy="1.5707963267949 0 -2.35619449019234" />
+    <parent link="ICRA_MAP" />
+    <child link="V" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="W">
+    <inertial>
+      <origin xyz="8.32667268468867E-17 -1.2490009027033E-16 0.000290724435700745" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384762E-05" ixy="2.09487675025572E-20" ixz="-4.2351647362715E-21" iyy="2.36988293384761E-05" iyz="1.68304050298071E-21" izz="4.73969120919471E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagW.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagW.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="W" type="fixed">
+    <origin xyz="3.95154094167356 2.15154094167356 0.0745" rpy="1.5707963267949 0 -0.785398163397448" />
+    <parent link="ICRA_MAP" />
+    <child link="W" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="X">
+    <inertial>
+      <origin xyz="8.32667268468867E-17 -1.2490009027033E-16 0.000290724435700745" rpy="0 0 0" />
+      <mass value="0.0130170384899998" />
+      <inertia ixx="2.36988293384762E-05" ixy="2.0574062723862E-20" ixz="0" iyy="2.36988293384761E-05" iyz="5.2246224089501E-22" izz="4.73969120919471E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagX.dae" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tag_rmua2022/meshes/tagX.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="X" type="fixed">
+    <origin xyz="4.12845905832644 2.15154094167356 0.0745" rpy="1.5707963267949 0 0.785398163397448" />
+    <parent link="ICRA_MAP" />
+    <child link="X" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+</robot>

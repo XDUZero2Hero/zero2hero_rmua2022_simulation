@@ -1,0 +1,13 @@
+<launch>
+  <group ns="icra_map">
+    <param name="robot_description" textfile="$(find tag_rmua2022)/urdf/tag_ruma2022.urdf" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="tf_prefix" value="icra_map"/>
+    </node >
+  </group>
+  <node name="icra_map_tf" pkg="tf2_ros" type="static_transform_publisher" args="0 0 0 0 0 0 map icra_map/ICRA_MAP">
+  </node >
+  <node name="apriltag_review" pkg="rviz" type="rviz" args="-d $(find tag_rmua2022)/config/apriltag_review.rviz">
+  </node >
+
+</launch>

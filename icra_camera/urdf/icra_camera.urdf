@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="icra_camera">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="0.075442 0.07509 0.64278"
+        rpy="0 0 0" />
+      <mass
+        value="1.7647" />
+      <inertia
+        ixx="0.11956"
+        ixy="7.4895E-08"
+        ixz="0.0054762"
+        iyy="0.11956"
+        iyz="0.0054762"
+        izz="0.038368" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://icra_camera/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.11765 0.11765 0.11765 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://icra_camera/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="camera_base">
+    <inertial>
+      <origin
+        xyz="0.0050535 0.0050535 0.058376"
+        rpy="0 0 0" />
+      <mass
+        value="0.34734" />
+      <inertia
+        ixx="0.00048142"
+        ixy="1.3963E-06"
+        ixz="-4.7259E-09"
+        iyy="0.00048142"
+        iyz="-4.7259E-09"
+        izz="0.00071316" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://icra_camera/meshes/camera_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://icra_camera/meshes/camera_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_yaw"
+    type="continuous">
+    <origin
+      xyz="-0.011775 -0.01575 1.568"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="camera_base" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="0.0030444 0.00055813 -1.1425E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0054585" />
+      <inertia
+        ixx="2.4741E-06"
+        ixy="-5.9674E-09"
+        ixz="8.8181E-12"
+        iyy="8.3749E-07"
+        iyz="-2.3985E-11"
+        izz="1.7897E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://icra_camera/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://icra_camera/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="pitch"
+    type="continuous">
+    <origin
+      xyz="0.04308 0.041786 0.15335"
+      rpy="0 0.48991 0.7854" />
+    <parent
+      link="camera_base" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+</robot>

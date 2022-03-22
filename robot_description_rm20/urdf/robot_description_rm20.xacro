@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<!-- <xacro:arg name="color" default="red" />
+ <xacro:arg name="id" default="1" /> -->
+
+<robot name="rm_$(arg color)_$(arg id)"
+  xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.14159265" />
+
+  <!-- <arg name="gpu" default="" /> -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.021362 -2.3755E-05 0.13994" rpy="0 0 0" />
+      <mass value="5.0677" />
+      <inertia ixx="0.16" ixy="-2.8635E-07" ixz="2.8291E-05" iyy="0.1" iyz="2.5469E-05" izz="0.1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description_rm20/meshes/base_link_$(arg color)_$(arg id).dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.65 0.5 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+    </collision>
+  </link>
+
+  <link name="arm">
+    <inertial>
+      <origin xyz="-0.010737 0.0095595 0.064952" rpy="0 0 0" />
+      <mass value="1.0383" />
+      <inertia ixx="0.0010489" ixy="2.1758E-05" ixz="1.0751E-05" iyy="0.0011027" iyz="-6.1634E-06" izz="0.0011775" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description_rm20/meshes/arm.dae" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_yaw" type="continuous">
+    <origin xyz="0 0 0.26" rpy="0 0 -0.011751" />
+    <parent link="base_link" />
+    <child link="arm" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1" />
+  </joint>
+
+  <link name="gun">
+    <inertial>
+      <origin xyz="0.072039 -0.0033032 0.013427" rpy="0 0 0" />
+      <mass value="0.29314" />
+      <inertia ixx="0.00013154" ixy="-6.6334E-07" ixz="1.1593E-06" iyy="0.00020933" iyz="-1.0306E-06" izz="0.00027994" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description_rm20/meshes/gun.dae" />
+      </geometry>
+    </visual>
+    <light name='laser_led' type='spot'>
+    </light>
+  </link>
+
+
+  <joint name="joint_pitch" type="continuous">
+    <origin xyz="0.00049304 0 0.166" rpy="0 0.0034784 0" />
+    <parent link="arm" />
+    <child link="gun" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.7" upper="0.7" effort="10" velocity="1" />
+  </joint>
+
+  <link name="camera">
+
+    <inertial>
+      <origin xyz="-0.0042394 0.0075832 0.0027857" rpy="0 0 0" />
+      <mass value="0.037897" />
+      <inertia ixx="4.514E-06" ixy="-5.1353E-08" ixz="1.2877E-07" iyy="5.8462E-06" iyz="-7.1995E-08" izz="5.8035E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.1" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description_rm20/meshes/camera.dae" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="camera_static" type="fixed">
+    <origin xyz="0.019493 -0.093993 0.097327" rpy="-1.5708 0 -1.5708" />
+    <parent link="arm" />
+    <child link="camera" />
+  </joint>
+
+  <link name="camera_modify">
+    <inertial>
+      <origin xyz="-0.0042394 0.0075832 0.0027857" rpy="0 0 0" />
+      <mass value="0.037897" />
+      <inertia ixx="4.514E-06" ixy="-5.1353E-08" ixz="1.2877E-07" iyy="5.8462E-06" iyz="-7.1995E-08" izz="5.8035E-06" />
+    </inertial>
+  </link>
+
+  <joint name="camera_offset" type="fixed">
+    <origin xyz="0.019493 -0.093993 0.097327" rpy=" 0 0 0" />
+    <parent link="arm" />
+    <child link="camera_modify" />
+  </joint>
+
+  <link name="laser">
+    <inertial>
+      <origin xyz="-0.00025516 -5.4248E-06 -0.012266" rpy="0 0 0" />
+      <mass value="0.33093" />
+      <inertia ixx="0.00051138" ixy="-3.5116E-08" ixz="1.1786E-06" iyy="0.00026372" iyz="-6.838E-08" izz="0.00044058" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description_rm20/meshes/laser.dae" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="laser_static" type="fixed">
+    <origin xyz="0.144 0 0.2475" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="laser" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="camera_modify">
+    <sensor type="camera" name="fps">
+      <update_rate>120.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>1024</width>
+          <height>1024</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>120</updateRate>
+        <cameraName>fps</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_modify</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+
+  <gazebo reference="laser">
+    <sensor type="gpu_ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>$(arg visual_laser)</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-2</min_angle>
+            <max_angle>2</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>9.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <!-- Gazebo requires the velodyne_gazebo_plugins package -->
+  <gazebo reference="laser">
+    <sensor type="gpu_ray" name="laser-VLP16">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>30</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-2</min_angle>
+            <max_angle>2</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>16</samples>
+            <resolution>1</resolution>
+            <min_angle>-${15.0*M_PI/180.0}</min_angle>
+            <max_angle> ${15.0*M_PI/180.0}</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.3</min>
+          <max>9</max>
+          <resolution>0.001</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.0</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_gpu_laser.so">
+        <topicName>velodyne</topicName>
+        <frameName>laser</frameName>
+        <organize_cloud>false</organize_cloud>
+        <min_range>0.3</min_range>
+        <max_range>9</max_range>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <gazebo reference="base_link">
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>imu_at_camera</topic>
+      <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+        <topicName>imu</topicName>
+        <bodyName>base_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>$(arg color)_$(arg id)/base_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>30.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+
+    <plugin name='light_control' filename='libLedPlugin.so'>
+      <light>
+        <light>gun/laser_led</light>
+        <duration>1</duration>
+        <interval>0</interval>
+      </light>
+    </plugin>
+
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/$(arg color)_$(arg id)</robotNamespace>
+    </plugin>
+
+  </gazebo>
+
+  <transmission name="trans_yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_yaw">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_yaw">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="trans_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_pitch">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

@@ -1,0 +1,7 @@
+<launch>
+  <group ns="icra_map">
+    <param name="robot_description" textfile="$(find tag_rmua2022)/urdf/tag_ruma2022.urdf" />
+    <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model tag_rmua2022 -x 0 -y 0 -z 0.01" output="screen" />
+  </group>
+
+</launch>

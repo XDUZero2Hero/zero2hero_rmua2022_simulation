@@ -1,0 +1,12 @@
+<launch>
+  <arg name="model" />
+  <!-- 颜色ID参数 -->
+  <arg name="id" default="1"/>
+  <arg name="color" default="red"/>
+  
+  <param name="robot_description" command="xacro '$(find icra_camera)/urdf/icra_camera.xacro' color:=$(arg color) id:=$(arg id) " />
+
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find icra_camera)/urdf.rviz" />
+</launch>

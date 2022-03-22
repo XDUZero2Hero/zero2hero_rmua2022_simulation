@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<robot name="tower_$(arg color)_$(arg id)"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.14159265" />
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+
+  <link name="base">
+    <inertial>
+      <origin xyz="0.075442 0.07509 0.64278" rpy="0 0 0" />
+      <mass value="1.7647" />
+      <inertia ixx="0.11956" ixy="7.4895E-08" ixz="0.0054762" iyy="0.11956" iyz="0.0054762" izz="0.038368" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icra_camera/meshes/base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.11765 0.11765 0.11765 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icra_camera/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera_base">
+    <inertial>
+      <origin xyz="0.0050535 0.0050535 0.058376" rpy="0 0 0" />
+      <mass value="0.34734" />
+      <inertia ixx="0.00048142" ixy="1.3963E-06" ixz="-4.7259E-09" iyy="0.00048142" iyz="-4.7259E-09" izz="0.00071316" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icra_camera/meshes/camera_base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icra_camera/meshes/camera_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_yaw" type="continuous">
+    <origin xyz="-0.011775 -0.01575 1.568" rpy="0 0 0" />
+    <parent link="base" />
+    <child link="camera_base" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="camera">
+    <inertial>
+      <origin xyz="0.0030444 0.00055813 -1.1425E-06" rpy="0 0 0" />
+      <mass value="0.0054585" />
+      <inertia ixx="2.4741E-06" ixy="-5.9674E-09" ixz="8.8181E-12" iyy="8.3749E-07" iyz="-2.3985E-11" izz="1.7897E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icra_camera/meshes/camera.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icra_camera/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pitch" type="continuous">
+    <origin xyz="0.04308 0.041786 0.15335" rpy="0 0.48991 0.7854" />
+    <parent link="camera_base" />
+    <child link="camera" />
+    <axis xyz="0 -1 0" />
+  </joint>
+
+  <gazebo reference="camera">
+    <sensor type="camera" name="tower">
+      <update_rate>120.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>120</updateRate>
+        <cameraName>tower</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+</robot>
