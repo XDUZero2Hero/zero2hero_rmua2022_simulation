@@ -55,7 +55,7 @@
     <arg name="Y" value="-1.5707963" />
   </include>
 
-  <!-- red 1 car -->
+<!-- red 1 car -->
   <include file="$(find robot_description_rm20)/launch/spawn.launch">
     <arg name="color" value="red" />
     <arg name="id" value="1" />
@@ -105,7 +105,7 @@
   </include> -->
 
 <!-- joystick 控制车辆移动 -->
-  <include file="$(find joy_teleop)/launch/f710_rmua.launch">
+  <include file="$(find rmua_2022_simulation)/launch/f710_rmua.launch">
     <arg name="joy_dev" value="/dev/input/js0" />
     <arg name="cmd_vel" value="/red_1/cmd_vel" />
   </include>

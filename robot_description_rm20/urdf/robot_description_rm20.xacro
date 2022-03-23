@@ -287,19 +287,37 @@
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
 
-    <plugin name='light_control' filename='libLedPlugin.so'>
-      <light>
-        <light>gun/laser_led</light>
-        <duration>1</duration>
-        <interval>0</interval>
-      </light>
-    </plugin>
-
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/$(arg color)_$(arg id)</robotNamespace>
     </plugin>
 
   </gazebo>
+
+<gazebo reference="gun">
+  <light name='gun/laser_led' type='spot'>
+          <pose>0 0 0 0 -1.5707963267949 0</pose>
+          <direction>0 0 -1</direction>
+          <attenuation>
+            <range>10</range>
+          </attenuation>
+          <spot>
+            <inner_angle>0.0</inner_angle>
+            <outer_angle>0.03</outer_angle>
+            <falloff>0.01</falloff>
+          </spot>
+          <diffuse>1 0.4 0.4 1</diffuse>
+          <specular>1 0 0 1</specular>
+  </light>
+  <plugin name='light_control' filename='libFlashLightPlugin.so'>
+      <enable>true</enable>
+      <light>
+        <id>gun/laser_led</id>
+        <duration>1</duration>
+        <interval>1</interval>
+      </light>
+   </plugin>
+  <selfCollide>false</selfCollide>
+</gazebo>
 
   <transmission name="trans_yaw">
     <type>transmission_interface/SimpleTransmission</type>
